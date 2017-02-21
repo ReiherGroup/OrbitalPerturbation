@@ -1,8 +1,8 @@
-import re
 import os
+import re
 import sys
 from shutil import copyfile
-
+from cmd_exists import cmd_exists
 
 class ControlFileParser:
     def __init__(self, directory):
@@ -75,3 +75,5 @@ script_dir = os.path.dirname(__file__)
 command_name = "./" + script_dir + "/turbomoleOrbitalMixer " + alpha + " " + beta + " " + nOrbitals + " " + nAlpha + " " + nBeta
 print command_name
 os.system(command_name)
+
+print cmd_exists("dscf")
