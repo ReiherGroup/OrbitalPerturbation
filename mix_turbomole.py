@@ -10,6 +10,7 @@ class Control_File_Parser:
         self.beta_filename = ""
         self.number_alpha = 0
         self.number_beta = 0
+        self.number_orbitals = 0
 
     def parse(self):
         textfile = open(self.control_file, 'r')
@@ -23,6 +24,8 @@ class Control_File_Parser:
         self.number_alpha = int(matches[0])
         matches = re.findall("beta shells *\n a  *1-(\d*)", filetext)
         self.number_beta = int(matches[0])
+        matches = re.findall("nbf\(AO\)=(\d*)", filetext)
+        self.number_orbitals = int(matches[0])
 
     def get_alpha_filename(self):
         return self.alpha_filename
@@ -35,6 +38,9 @@ class Control_File_Parser:
 
     def get_number_beta_electrons(self):
         return self.number_beta
+
+    def get_number_orbitals(self):
+        return self.number_orbitals
 
 
 def create_orbital_backup(directory):
@@ -61,3 +67,4 @@ print (parser.get_alpha_filename())
 print (parser.get_beta_filename())
 print (parser.get_number_alpha_electrons())
 print (parser.get_number_beta_electrons())
+print (parser.get_number_orbitals())
