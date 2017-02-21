@@ -8,6 +8,8 @@ class Control_File_Parser:
         self.control_file = directory + "/control"
         self.alpha_filename = ""
         self.beta_filename = ""
+        self.number_alpha = 0
+        self.number_beta = 0
 
     def parse(self):
         textfile = open(self.control_file, 'r')
@@ -15,12 +17,24 @@ class Control_File_Parser:
         textfile.close()
         matches = re.findall("uhfmo_alpha  *file=(.*)", filetext)
         self.alpha_filename = matches[0]
+        matches = re.findall("uhfmo_beta  *file=(.*)", filetext)
+        self.beta_filename = matches[0]
+        matches = re.findall("alpha shells *\n a  *1-(\d*)", filetext)
+        self.number_alpha = int(matches[0])
+        matches = re.findall("beta shells *\n a  *1-(\d*)", filetext)
+        self.number_beta = int(matches[0])
 
     def get_alpha_filename(self):
         return self.alpha_filename
 
-    def get_beta_filename(self, structure_number):
+    def get_beta_filename(self):
         return self.beta_filename
+
+    def get_number_alpha_electrons(self):
+        return self.number_alpha
+
+    def get_number_beta_electrons(self):
+        return self.number_beta
 
 
 def create_orbital_backup(directory):
@@ -44,3 +58,6 @@ create_orbital_backup(calculation_directory)
 parser = Control_File_Parser(calculation_directory)
 parser.parse()
 print (parser.get_alpha_filename())
+print (parser.get_beta_filename())
+print (parser.get_number_alpha_electrons())
+print (parser.get_number_beta_electrons())
