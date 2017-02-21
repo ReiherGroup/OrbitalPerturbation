@@ -44,13 +44,12 @@ class ControlFileParser:
         return self.number_orbitals
 
 
-def create_orbital_backup(directory):
+def create_orbital_backup(alpha, beta):
     """
     Creates .bak files for the orbital files 'alpha' and 'beta'
-    :param directory: calculation directory
     """
-    copyfile(directory + '/alpha', directory + '/alpha.bak')
-    copyfile(directory + '/beta', directory + '/beta.bak')
+    copyfile(alpha, alpha + '.bak')
+    copyfile(beta, beta + '.bak')
 
 
 args = sys.argv
