@@ -4,7 +4,7 @@ import sys
 from shutil import copyfile
 
 
-class Control_File_Parser:
+class ControlFileParser:
     def __init__(self, directory):
         self.control_file = directory + "/control"
         self.alpha_filename = ""
@@ -61,7 +61,7 @@ if len(args) != 2:
 calculation_directory = args[1]
 create_orbital_backup(calculation_directory)
 
-parser = Control_File_Parser(calculation_directory)
+parser = ControlFileParser(calculation_directory)
 parser.parse()
 
 alpha =  parser.get_alpha_filename()
