@@ -1,4 +1,5 @@
 import re
+import os
 import sys
 from shutil import copyfile
 
@@ -52,7 +53,6 @@ def create_orbital_backup(directory):
     copyfile(directory + '/beta', directory + '/beta.bak')
 
 
-
 args = sys.argv
 if len(args) != 2:
     print("Usage: python mix_turbomole.py <calculation_directory>")
@@ -63,8 +63,15 @@ create_orbital_backup(calculation_directory)
 
 parser = Control_File_Parser(calculation_directory)
 parser.parse()
-print (parser.get_alpha_filename())
-print (parser.get_beta_filename())
-print (parser.get_number_alpha_electrons())
-print (parser.get_number_beta_electrons())
-print (parser.get_number_orbitals())
+
+alpha =  parser.get_alpha_filename()
+beta = parser.get_beta_filename()
+nAlpha = str(parser.get_number_alpha_electrons())
+nBeta = str(parser.get_number_beta_electrons())
+nOrbitals = str(parser.get_number_orbitals())
+
+
+script_dir = os.path.dirname(__file__)
+command_name = "./" + script_dir + "/turbomoleOrbitalMixer " + alpha + " " + beta + " " + nOrbitals + " " + nAlpha + " " + nBeta
+print command_name
+os.system(command_name)
