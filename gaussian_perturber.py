@@ -1,13 +1,19 @@
 import os
+import sys
 import time
 
-from mix_gaussian import checkpoint_file
-from perturbation_utils import create_backup
+from perturbation_utils import create_backup, cmd_exists
 
 
 class GaussianOrbitalPerturber:
     def __init__(self, checkpoint_file):
         self.checkpoint_file = checkpoint_file
+        self.check_preconditions()
+
+    def check_preconditions(self):
+        if not cmd_exists("formchk") or not cmd_exists("unfchk"):
+            print("Gaussian commands formchk and unfchk are not present in the PATH variable")
+            sys.exit()
 
     def perturb_orbitals(self):
         create_backup(self.checkpoint_file)

@@ -47,6 +47,6 @@ class TurbomoleOrbitalPerturber:
         nOrbitals = str(parser.number_orbitals)
 
         script_dir = os.path.dirname(__file__)
-        #command_name = "./" + script_dir + "/turbomoleOrbitalMixer " + alpha + " " + beta + " " + nOrbitals + " " + nAlpha + " " + nBeta
+        # command_name = "./" + script_dir + "/turbomoleOrbitalMixer " + alpha + " " + beta + " " + nOrbitals + " " + nAlpha + " " + nBeta
         command_name = script_dir + "/turbomoleOrbitalMixer " + alpha + " " + beta + " " + nOrbitals + " " + nAlpha + " " + nBeta
         os.system(command_name)
