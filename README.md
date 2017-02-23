@@ -17,6 +17,7 @@ Specific information to the supported quantum chemical software can be read belo
 It can happen that self-consistent field calculations converge to a non-global energy minimum.
 In such cases, it is helpful to perturb the molecular orbitals following a randomized scheme, as a different guess for the electronic density may lead to another SCF solution.
 Doing this can be especially important in interactive explorations of chemical reactivity or in ab initio molecular dynamics.
+The perturbation scheme is a vital component of our real-time quantum chemistry software (http://www.reiher.ethz.ch/research/haptic-quantum-chemistry).
 
 A more detailed discussion of the topic, algorithm and applications can be found in 
 Algorithm and applications described in [doi:10.1021/acs.jctc.7b00011](https://dx.doi.org/10.1021/acs.jctc.7b00011).
