@@ -17,12 +17,6 @@ class MolecularOrbitals {
  public:
   using Matrix = SpinAdaptedMatrix::Matrix;
 
-  MolecularOrbitals() = default;
-  MolecularOrbitals(const MolecularOrbitals&) = default;
-  MolecularOrbitals(MolecularOrbitals&& other) = default;
-  MolecularOrbitals& operator=(const MolecularOrbitals&) = default;
-  MolecularOrbitals& operator=(MolecularOrbitals&& other) = default;
-
   static MolecularOrbitals createEmptyUnrestrictedOrbitals();
   static MolecularOrbitals createEmptyRestrictedOrbitals();
   template<typename T> static MolecularOrbitals createFromRestrictedCoefficients(T&& restricted);

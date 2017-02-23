@@ -15,13 +15,7 @@ class SpinAdaptedMatrix {
 public:
   using Matrix = Eigen::MatrixXd;
 
-  SpinAdaptedMatrix() = default;
-  SpinAdaptedMatrix(const SpinAdaptedMatrix&) = default;
-  SpinAdaptedMatrix(SpinAdaptedMatrix&& other) = default;
-  SpinAdaptedMatrix& operator=(const SpinAdaptedMatrix&) = default;
-  SpinAdaptedMatrix& operator=(SpinAdaptedMatrix&& other) = default;
-
-  /*! Construct a SpinAdaptedMatrix with restricted part only from an Eigen::MatrixXd. */ 
+  /*! Construct a SpinAdaptedMatrix with restricted part only from an Eigen::MatrixXd. */
   static SpinAdaptedMatrix createRestricted(Eigen::MatrixXd m);
   /*! Construct a SpinAdaptedMatrix with alpha and beta parts only from two Eigen::MatrixXd. */ 
   static SpinAdaptedMatrix createUnrestricted(Eigen::MatrixXd alpha, Eigen::MatrixXd beta);
