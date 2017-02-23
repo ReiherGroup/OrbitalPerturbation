@@ -18,7 +18,6 @@ class UniqueRandomNumbersGenerator {
   void setMax(IntegerType max);
   void setRange(IntegerType min, IntegerType max);
 
-  std::vector<IntegerType> generate(unsigned N);
   template<typename Generator>
   std::vector<IntegerType> generate(Generator& generator, unsigned N);
 
@@ -47,12 +46,6 @@ template<typename IntegerType>
 void UniqueRandomNumbersGenerator<IntegerType>::setRange(IntegerType min, IntegerType max) {
   setMin(min);
   setMax(max);
-}
-
-template<typename IntegerType>
-std::vector<IntegerType> UniqueRandomNumbersGenerator<IntegerType>::generate(unsigned N) {
-  std::mt19937 generator;
-  return generate(generator, N);
 }
 
 template<typename IntegerType>

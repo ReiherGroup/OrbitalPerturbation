@@ -8,12 +8,7 @@ double TurbomoleNumberStringConverter::toDouble(const std::string& numberString)
   assert(numberString.length() == 20);
   std::string s = numberString;
   s[16] = 'E';
-  std::cout << s << std::endl;
   return std::stod(s);
-}
-
-double TurbomoleNumberStringConverter::toDouble(const char* numberString) {
-  return toDouble(std::string(numberString));
 }
 
 std::string TurbomoleNumberStringConverter::toString(double number) {

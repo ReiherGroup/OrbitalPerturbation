@@ -20,7 +20,6 @@ namespace OrbitalPerturbation {
 class TurbomoleNumberStringConverter {
  public:
   static double toDouble(const std::string& numberString);
-  static double toDouble(const char* numberString);
 
   static std::string toString(double number);
 
