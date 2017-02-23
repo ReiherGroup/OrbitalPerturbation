@@ -3,8 +3,13 @@ set (CMAKE_CXX_STANDARD 11)
 
 project(OrbitalPerturbation)
 
-list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
-find_package(Eigen3 REQUIRED)
+# Import Eigen library
+# First try CONFIG mode, if this does not work use the MODULE mode.
+find_package(Eigen3 CONFIG)
+if (NOT ${Eigen3_FOUND})
+  list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+  find_package(Eigen3 REQUIRED)
+endif()
 
 set(HEADERS
     OrbitalPerturbation/SeedIO.h
