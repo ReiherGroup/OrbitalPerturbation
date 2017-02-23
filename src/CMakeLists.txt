@@ -5,7 +5,7 @@ project(OrbitalPerturbation)
 
 # Import Eigen library
 # First try CONFIG mode, if this does not work use the MODULE mode.
-find_package(Eigen3 CONFIG)
+find_package(Eigen3 CONFIG QUIET)
 if (NOT ${Eigen3_FOUND})
   list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
   find_package(Eigen3 REQUIRED)
