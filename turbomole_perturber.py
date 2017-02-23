@@ -1,7 +1,8 @@
 import os
 import re
+import sys
 
-from perturbation_utils import create_backup
+from perturbation_utils import create_backup, cmd_exists
 
 
 class ControlFileParser:
@@ -31,7 +32,14 @@ class ControlFileParser:
 
 class TurbomoleOrbitalPerturber:
     def __init__(self, calculation_directory):
+        self.executable_name = "turbomole_perturbation"
         self.calculation_directory = calculation_directory
+        self.check_preconditions()
+
+    def check_preconditions(self):
+        if not cmd_exists(self.executable_name):
+            print("The executable '" + self.executable_name + "' is not present in the PATH variable")
+            sys.exit()
 
     def perturb_orbitals(self):
         parser = ControlFileParser(self.calculation_directory)
@@ -46,7 +54,5 @@ class TurbomoleOrbitalPerturber:
         nBeta = str(parser.number_beta)
         nOrbitals = str(parser.number_orbitals)
 
-        script_dir = os.path.dirname(__file__)
-        # command_name = "./" + script_dir + "/turbomoleOrbitalMixer " + alpha + " " + beta + " " + nOrbitals + " " + nAlpha + " " + nBeta
-        command_name = script_dir + "/turbomoleOrbitalMixer " + alpha + " " + beta + " " + nOrbitals + " " + nAlpha + " " + nBeta
+        command_name = self.executable_name + " " + alpha + " " + beta + " " + nOrbitals + " " + nAlpha + " " + nBeta
         os.system(command_name)
