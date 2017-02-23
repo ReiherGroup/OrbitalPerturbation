@@ -16,8 +16,6 @@ int main(int argc, char *argv[]) {
     return 1;
   }
   else {
-    cout << "New calculation\n"
-            "--------------------\n\n";
     chkFileName = argv[1];
     newchkFileName = argv[2];
   }
