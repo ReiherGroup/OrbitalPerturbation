@@ -44,6 +44,27 @@ class ControlFileParser:
         return self.number_orbitals
 
 
+class TurbomoleOrbitalPerturber:
+    def __init__(self, calculation_directory):
+        self.calculation_directory = calculation_directory
+
+    def perturb_orbitals(self):
+        parser = ControlFileParser(self.calculation_directory)
+        parser.parse()
+
+        alpha = parser.get_alpha_filename()
+        beta = parser.get_beta_filename()
+        create_backup(calculation_directory + "/" + alpha)
+        create_backup(calculation_directory + "/" + beta)
+
+        nAlpha = str(parser.get_number_alpha_electrons())
+        nBeta = str(parser.get_number_beta_electrons())
+        nOrbitals = str(parser.get_number_orbitals())
+
+        script_dir = os.path.dirname(__file__)
+        command_name = "./" + script_dir + "/turbomoleOrbitalMixer " + alpha + " " + beta + " " + nOrbitals + " " + nAlpha + " " + nBeta
+        os.system(command_name)
+
 
 args = sys.argv
 if len(args) != 2:
@@ -51,22 +72,5 @@ if len(args) != 2:
     sys.exit()
 
 calculation_directory = args[1]
-create_backup(calculation_directory + "/alpha")
-create_backup(calculation_directory + "/beta")
-
-parser = ControlFileParser(calculation_directory)
-parser.parse()
-
-alpha =  parser.get_alpha_filename()
-beta = parser.get_beta_filename()
-nAlpha = str(parser.get_number_alpha_electrons())
-nBeta = str(parser.get_number_beta_electrons())
-nOrbitals = str(parser.get_number_orbitals())
-
-
-script_dir = os.path.dirname(__file__)
-command_name = "./" + script_dir + "/turbomoleOrbitalMixer " + alpha + " " + beta + " " + nOrbitals + " " + nAlpha + " " + nBeta
-print command_name
-os.system(command_name)
-
-print cmd_exists("dscf")
+turbomole_perturber = TurbomoleOrbitalPerturber(calculation_directory)
+turbomole_perturber.perturb_orbitals()
