@@ -1,7 +1,7 @@
 #include "GaussianOrbitalFileReader.h"
 #include <iostream>
 
-namespace Miscellaneous {
+namespace OrbitalPerturbation {
 
 GaussianOrbitalFileReader::GaussianOrbitalFileReader(const std::string& file) {
   openFile(file);
@@ -121,4 +121,4 @@ const MolecularOrbitals& GaussianOrbitalFileReader::getOrbitals() const {
   return orbitals_;
 }
 
-} // namespace Miscellaneous
+} // namespace OrbitalPerturbation

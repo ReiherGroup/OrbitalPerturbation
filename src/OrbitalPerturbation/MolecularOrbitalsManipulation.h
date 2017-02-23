@@ -1,10 +1,11 @@
-#ifndef MOLECULARORBITALSORBITALSMANIPULATION_H
-#define MOLECULARORBITALSORBITALSMANIPULATION_H
+#ifndef ORBITALPERTUBATION_MOLECULARORBITALSORBITALSMANIPULATION_H
+#define ORBITALPERTUBATION_MOLECULARORBITALSORBITALSMANIPULATION_H
 
 #include <Eigen/Core>
 #include <vector>
+
+namespace OrbitalPerturbation {
 class MolecularOrbitals;
-namespace LcaoUtil {
 
 /*!
  * Class for transformations on molecular orbitals.
@@ -59,6 +60,6 @@ class MolecularOrbitalsManipulation {
   static void mixOrbitalCoefficients(Eigen::MatrixXd& coefficientMatrix, const std::vector<Mix>& mixes);
 };
 
-} // namespace LcaoUtil
+} // namespace OrbitalPerturbation
 
-#endif // MOLECULARORBITALSORBITALSMANIPULATION_H
+#endif // ORBITALPERTUBATION_MOLECULARORBITALSORBITALSMANIPULATION_H

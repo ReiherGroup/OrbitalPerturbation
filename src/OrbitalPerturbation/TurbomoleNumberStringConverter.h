@@ -1,9 +1,9 @@
-#ifndef TURBOMOLENUMBERSTRINGCONVERTER_H
-#define TURBOMOLENUMBERSTRINGCONVERTER_H
+#ifndef ORBITALPERTURBATION_TURBOMOLENUMBERSTRINGCONVERTER_H
+#define ORBITALPERTURBATION_TURBOMOLENUMBERSTRINGCONVERTER_H
 
 #include <string>
 
-namespace Miscellaneous {
+namespace OrbitalPerturbation {
 
 /*!
  * This class converts turbomole-formatted number strings to doubles and inversely.
@@ -30,6 +30,6 @@ class TurbomoleNumberStringConverter {
   static std::string getExponentPart(int exponent);
 };
 
-} // namespace Miscellaneous
+} // namespace OrbitalPerturbation
 
-#endif // TURBOMOLENUMBERSTRINGCONVERTER_H
+#endif // ORBITALPERTURBATION_TURBOMOLENUMBERSTRINGCONVERTER_H

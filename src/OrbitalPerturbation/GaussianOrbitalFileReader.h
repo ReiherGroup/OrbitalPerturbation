@@ -1,11 +1,11 @@
-#ifndef GAUSSIANORBITALFILEREADER_H
-#define GAUSSIANORBITALFILEREADER_H
+#ifndef ORBITALPERTURBATION_GAUSSIANORBITALFILEREADER_H
+#define ORBITALPERTURBATION_GAUSSIANORBITALFILEREADER_H
 
 #include "MolecularOrbitals.h"
 #include <fstream>
 #include <vector>
 
-namespace Miscellaneous {
+namespace OrbitalPerturbation {
 
 /*!
  * Class to read a formatted Gaussian checkpoint file and extract the orbitals
@@ -40,6 +40,6 @@ class GaussianOrbitalFileReader {
   std::vector<double> betaCoefficients_;
 };
 
-} // namespace Miscellaneous
+} // namespace OrbitalPerturbation
 
-#endif // GAUSSIANORBITALFILEREADER_H
+#endif // ORBITALPERTURBATION_GAUSSIANORBITALFILEREADER_H

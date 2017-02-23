@@ -1,11 +1,11 @@
-#ifndef MULTIPLESCFSOLUTIONS_ORBITALMIXER_H
-#define MULTIPLESCFSOLUTIONS_ORBITALMIXER_H
+#ifndef ORBITALPERTURBATION_ORBITALMIXER_H
+#define ORBITALPERTURBATION_ORBITALMIXER_H
 
 #include "MolecularOrbitalsManipulation.h"
 #include <random>
 #include <assert.h>
+namespace OrbitalPerturbation {
 class MolecularOrbitals;
-namespace MultipleScfSolutions {
 
 /*!
  * Class to randomly mix randomly chosen molecular orbitals.
@@ -28,11 +28,11 @@ class RandomOrbitalMixer {
 
  private:
   void checkValidNumberOfMixes();
-  std::vector<LcaoUtil::MolecularOrbitalsManipulation::Mix> calculateMixes(int homoIndex) const;
+  std::vector<OrbitalPerturbation::MolecularOrbitalsManipulation::Mix> calculateMixes(int homoIndex) const;
   std::vector<int> getRandomOccupiedOrbitals(int homoIndex) const;
   std::vector<int> getRandomVirtualOrbitals(int homoIndex) const;
   std::vector<int> selectUniqueRandomNumbers(int min, int max) const;
-  std::vector<LcaoUtil::MolecularOrbitalsManipulation::Mix>
+  std::vector<OrbitalPerturbation::MolecularOrbitalsManipulation::Mix>
   createMixes(const std::vector<int>& occ, const std::vector<int>& virt) const;
   int calculateMaximalVirtualIndex(int homoIndex) const;
   int calculateMinimalOccupiedIndex(int homoIndex) const;
@@ -67,6 +67,6 @@ inline std::mt19937& RandomOrbitalMixer::getRandomNumberGenerator() {
   return rdGen_;
 }
 
-} // namespace MultipleScfSolutions
+} // namespace OrbitalPerturbation
 
-#endif // MULTIPLESCFSOLUTIONS_ORBITALMIXER_H
+#endif // ORBITALPERTURBATION_ORBITALMIXER_H

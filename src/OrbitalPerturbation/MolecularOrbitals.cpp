@@ -1,5 +1,7 @@
 #include "MolecularOrbitals.h"
 
+namespace OrbitalPerturbation {
+
 void MolecularOrbitals::makeUnrestricted() {
   if (unrestricted_)
     return;
@@ -26,3 +28,5 @@ MolecularOrbitals MolecularOrbitals::createEmptyUnrestrictedOrbitals() {
 MolecularOrbitals MolecularOrbitals::createEmptyRestrictedOrbitals() {
   return createFromRestrictedCoefficients(Eigen::MatrixXd{});
 }
+
+} // namespace OrbitalPerturbation

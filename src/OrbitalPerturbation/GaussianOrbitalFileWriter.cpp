@@ -1,7 +1,7 @@
 #include "ScientificNumberFormatter.h"
 #include "GaussianOrbitalFileWriter.h"
 
-namespace Miscellaneous {
+namespace OrbitalPerturbation {
 
 GaussianOrbitalFileWriter::GaussianOrbitalFileWriter(const MolecularOrbitals& orbitals,
                                                      const std::string& inFile,
@@ -75,4 +75,4 @@ void GaussianOrbitalFileWriter::writeCoefficients(const Eigen::MatrixXd& c) {
   }
 }
 
-} // namespace Miscellaneous
+} // namespace OrbitalPerturbation

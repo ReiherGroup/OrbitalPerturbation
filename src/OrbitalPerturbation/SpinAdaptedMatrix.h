@@ -1,8 +1,10 @@
-#ifndef SPINADAPTEDMATRIX_H
-#define SPINADAPTEDMATRIX_H
+#ifndef ORBITALPERTURBATION_SPINADAPTEDMATRIX_H
+#define ORBITALPERTURBATION_SPINADAPTEDMATRIX_H
 
 #include <Eigen/Core>
 #include <utility>
+
+namespace OrbitalPerturbation {
 
 /*!
  * Class defining a matrix and which can be used for both spin-restricted and spin-unrestricted formalisms in electronic structure calculation methods.
@@ -127,4 +129,6 @@ inline const SpinAdaptedMatrix::Matrix& SpinAdaptedMatrix::betaMatrix() const {
   return betaMatrix_;
 }
 
-#endif // SPINADAPTEDMATRIX_H
+} // namespace OrbitalPerturbation
+
+#endif // ORBITALPERTURBATION_SPINADAPTEDMATRIX_H

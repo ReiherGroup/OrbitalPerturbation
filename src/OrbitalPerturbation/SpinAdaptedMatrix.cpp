@@ -1,5 +1,7 @@
 #include "SpinAdaptedMatrix.h"
 
+namespace OrbitalPerturbation {
+
 SpinAdaptedMatrix SpinAdaptedMatrix::createRestricted(Eigen::MatrixXd m) {
   SpinAdaptedMatrix matrix;
   matrix.resize(static_cast<unsigned>(m.rows()));
@@ -21,3 +23,5 @@ void SpinAdaptedMatrix::resize(unsigned nAOs) {
   alphaMatrix_.resize(nAOs, nAOs);
   betaMatrix_.resize(nAOs, nAOs);
 }
+
+} // namespace OrbitalPerturbation

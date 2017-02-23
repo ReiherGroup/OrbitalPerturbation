@@ -1,5 +1,5 @@
-#ifndef SCIENTIFICNUMBERFORMATTER_H
-#define SCIENTIFICNUMBERFORMATTER_H
+#ifndef ORBITALPERTURBATION_SCIENTIFICNUMBERFORMATTER_H
+#define ORBITALPERTURBATION_SCIENTIFICNUMBERFORMATTER_H
 
 #include <string>
 
@@ -49,4 +49,4 @@ inline int ScientificNumberFormatter::defaultNumberOfDigitsAfterDecimalPoint() {
   return defaultNumberOfDigitsAfterDecimalPoint_;
 }
 
-#endif // SCIENTIFICNUMBERFORMATTER_H
+#endif // ORBITALPERTURBATION_SCIENTIFICNUMBERFORMATTER_H

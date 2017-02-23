@@ -1,12 +1,12 @@
-#ifndef TURBOMOLEORBITALFILEREADER_H
-#define TURBOMOLEORBITALFILEREADER_H
+#ifndef ORBITALPERTURBATION_TURBOMOLEORBITALFILEREADER_H
+#define ORBITALPERTURBATION_TURBOMOLEORBITALFILEREADER_H
 
 #include "TurbomoleOrbitalsMetaInformation.h"
 #include <Eigen/Core>
 #include <iostream>
 #include <fstream>
 
-namespace Miscellaneous {
+namespace OrbitalPerturbation {
 
 /*!
  * Class to read a single Turbomole molecular orbital file (for instance alpha, beta, mo, ...).
@@ -34,6 +34,6 @@ class TurbomoleOrbitalFileReader {
   TurbomoleOrbitalsMetaInformation metaInformation_;
 };
 
-} // namespace Miscellaneous
+} // namespace OrbitalPerturbation
 
-#endif // TURBOMOLEORBITALFILEREADER_H
+#endif // ORBITALPERTURBATION_TURBOMOLEORBITALFILEREADER_H

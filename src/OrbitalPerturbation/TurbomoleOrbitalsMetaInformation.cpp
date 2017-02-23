@@ -1,6 +1,6 @@
 #include "TurbomoleOrbitalsMetaInformation.h"
 
-namespace Miscellaneous {
+namespace OrbitalPerturbation {
 
 void TurbomoleOrbitalsMetaInformation::setHeader(std::string h1, std::string h2, std::string h3) {
   header1_ = std::move(h1);
@@ -36,4 +36,4 @@ void TurbomoleOrbitalsMetaInformation::setFooter(std::string footer) {
   footer_ = std::move(footer);
 }
 
-} // namespace Miscellaneous
+} // namespace OrbitalPerturbation

@@ -6,7 +6,7 @@
 #include "OrbitalPerturbation/MolecularOrbitals.h"
 
 using namespace std;
-using namespace Miscellaneous;
+using namespace OrbitalPerturbation;
 
 /*!
  * Executable to mix alpha and beta orbitals of turbomole files.

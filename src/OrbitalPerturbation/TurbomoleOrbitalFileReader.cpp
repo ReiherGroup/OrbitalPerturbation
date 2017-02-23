@@ -1,7 +1,7 @@
 #include "TurbomoleOrbitalFileReader.h"
 #include "TurbomoleNumberStringConverter.h"
 
-namespace Miscellaneous {
+namespace OrbitalPerturbation {
 
 TurbomoleOrbitalFileReader::TurbomoleOrbitalFileReader(const std::string& file, unsigned nOrbitals)
   : nOrbitals_(nOrbitals) {
@@ -69,4 +69,4 @@ void TurbomoleOrbitalFileReader::readFooter() {
   metaInformation_.setFooter(std::move(footer));
 }
 
-} // namespace Miscellaneous
+} // namespace OrbitalPerturbation

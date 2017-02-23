@@ -3,7 +3,7 @@
 #include "UniqueRandomNumbersGenerator.h"
 #include <iostream>
 
-namespace MultipleScfSolutions {
+namespace OrbitalPerturbation {
 
 std::mt19937 RandomOrbitalMixer::rdGen_; // NB: if non-static, the same orbital mixes will always be generated.
 
@@ -35,11 +35,11 @@ void RandomOrbitalMixer::mix() {
   if (orbitals_.isUnrestricted()) {
     auto alphaMixes = calculateMixes(alphaHomo_);
     auto betaMixes = calculateMixes(betaHomo_);
-    LcaoUtil::MolecularOrbitalsManipulation::mixUnrestricted(orbitals_, alphaMixes, betaMixes);
+    OrbitalPerturbation::MolecularOrbitalsManipulation::mixUnrestricted(orbitals_, alphaMixes, betaMixes);
   }
   else {
     auto restrictedMixes = calculateMixes(alphaHomo_);
-    LcaoUtil::MolecularOrbitalsManipulation::mixRestricted(orbitals_, restrictedMixes);
+    OrbitalPerturbation::MolecularOrbitalsManipulation::mixRestricted(orbitals_, restrictedMixes);
   }
 }
 
@@ -48,7 +48,7 @@ bool RandomOrbitalMixer::invalidMolecularOrbitals(const MolecularOrbitals& mo) c
   return invalid || mo.isRestricted();
 }
 
-std::vector<LcaoUtil::MolecularOrbitalsManipulation::Mix> RandomOrbitalMixer::calculateMixes(int homoIndex) const {
+std::vector<OrbitalPerturbation::MolecularOrbitalsManipulation::Mix> RandomOrbitalMixer::calculateMixes(int homoIndex) const {
   auto selectedOccupied = getRandomOccupiedOrbitals(homoIndex);
   auto selectedVirtual = getRandomVirtualOrbitals(homoIndex);
   auto mixes = createMixes(selectedOccupied, selectedVirtual);
@@ -76,9 +76,9 @@ std::vector<int> RandomOrbitalMixer::selectUniqueRandomNumbers(int min, int max)
   return randomGenerator.generate(rdGen_,static_cast<unsigned>(numberMixes_));
 }
 
-std::vector<LcaoUtil::MolecularOrbitalsManipulation::Mix> RandomOrbitalMixer::createMixes(const std::vector<int>& occ,
+std::vector<OrbitalPerturbation::MolecularOrbitalsManipulation::Mix> RandomOrbitalMixer::createMixes(const std::vector<int>& occ,
                                                                                           const std::vector<int>& virt) const {
-  std::vector<LcaoUtil::MolecularOrbitalsManipulation::Mix> mixes;
+  std::vector<OrbitalPerturbation::MolecularOrbitalsManipulation::Mix> mixes;
 
   std::uniform_real_distribution<double> distr(minAngle_,maxAngle_);
   for (int i = 0; i < numberMixes_; ++i) {
@@ -126,4 +126,4 @@ void RandomOrbitalMixer::considerAllOrbitals() {
   considerAllOrbitals_ = true;
 }
 
-} // namespace MultipleScfSolutions
+} // namespace OrbitalPerturbation

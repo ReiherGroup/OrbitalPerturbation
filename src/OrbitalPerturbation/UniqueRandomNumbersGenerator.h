@@ -1,9 +1,11 @@
-#ifndef UNIQUERANDOMNUMBERSGENERATOR_H
-#define UNIQUERANDOMNUMBERSGENERATOR_H
+#ifndef ORBITALPERTURBATION_UNIQUERANDOMNUMBERSGENERATOR_H
+#define ORBITALPERTURBATION_UNIQUERANDOMNUMBERSGENERATOR_H
 
 #include <random>
 #include <vector>
 #include <assert.h>
+
+namespace OrbitalPerturbation {
 
 /*
  * Class to generate several unique random numbers from a range of numbers.
@@ -89,4 +91,6 @@ void UniqueRandomNumbersGenerator<IntegerType>::generateArrayOfPossibleNumbers()
     possibleNumbers_.push_back(i);
 }
 
-#endif // UNIQUERANDOMNUMBERSGENERATOR_H
+} // namespace OrbitalPerturbation
+
+#endif // ORBITALPERTURBATION_UNIQUERANDOMNUMBERSGENERATOR_H

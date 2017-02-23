@@ -24,15 +24,15 @@ int main(int argc, char *argv[]) {
 
   cout << "Reading the structure from the file " << chkFileName << "." << endl;
 
-  Miscellaneous::GaussianOrbitalFileReader gt(chkFileName);
+  OrbitalPerturbation::GaussianOrbitalFileReader gt(chkFileName);
 
-  MolecularOrbitals mo = gt.getOrbitals();
+  auto mo = gt.getOrbitals();
   unsigned nAlpha = gt.getNumberAlphaElectrons();
   unsigned nBeta = gt.getNumberBetaElectrons();
 
   mixOrbitals(mo, nAlpha, nBeta);
 
-  Miscellaneous::GaussianOrbitalFileWriter wt(mo, chkFileName, newchkFileName);
+  OrbitalPerturbation::GaussianOrbitalFileWriter wt(mo, chkFileName, newchkFileName);
   wt.write();
 
   return 0;

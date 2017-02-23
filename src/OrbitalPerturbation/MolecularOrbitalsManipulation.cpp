@@ -1,7 +1,7 @@
 #include "MolecularOrbitalsManipulation.h"
 #include "MolecularOrbitals.h"
 
-namespace LcaoUtil {
+namespace OrbitalPerturbation {
 
 MolecularOrbitals MolecularOrbitalsManipulation::createRestrictedWithSwaps(const MolecularOrbitals& orbitals,
                                                                            const std::vector<MolecularOrbitalsManipulation::Swap>& swaps) {
@@ -71,4 +71,4 @@ void MolecularOrbitalsManipulation::mixOrbitalCoefficients(Eigen::MatrixXd& C,
     C.col(m.orbital2_) = C.col(m.orbital2_) * std::cos(m.angleInRad_) - temporaryOrbitalCoefficients * std::sin(m.angleInRad_);
   }
 }
-} // namespace LcaoUtil
+} // namespace OrbitalPerturbation

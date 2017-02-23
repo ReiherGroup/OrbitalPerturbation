@@ -1,9 +1,9 @@
-#ifndef TURBOMOLEORBITALFILEWRITER_H
-#define TURBOMOLEORBITALFILEWRITER_H
+#ifndef ORBITALPERTURBATION_TURBOMOLEORBITALFILEWRITER_H
+#define ORBITALPERTURBATION_TURBOMOLEORBITALFILEWRITER_H
 
 #include <Eigen/Core>
 #include <fstream>
-namespace Miscellaneous {
+namespace OrbitalPerturbation {
 class TurbomoleOrbitalsMetaInformation;
 
 /*!
@@ -29,6 +29,6 @@ class TurbomoleOrbitalFileWriter {
   std::ofstream moFile_;
 };
 
-} // namespace Miscellaneous
+} // namespace OrbitalPerturbation
 
-#endif // TURBOMOLEORBITALFILEWRITER_H
+#endif // ORBITALPERTURBATION_TURBOMOLEORBITALFILEWRITER_H

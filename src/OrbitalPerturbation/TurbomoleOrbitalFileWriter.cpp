@@ -2,7 +2,7 @@
 #include "TurbomoleOrbitalsMetaInformation.h"
 #include "TurbomoleNumberStringConverter.h"
 
-namespace Miscellaneous {
+namespace OrbitalPerturbation {
 
 TurbomoleOrbitalFileWriter::TurbomoleOrbitalFileWriter(const Eigen::MatrixXd& coefficientMatrix,
                                                        const TurbomoleOrbitalsMetaInformation& metaInformation)
@@ -47,4 +47,4 @@ void TurbomoleOrbitalFileWriter::writeFooter() {
   moFile_ << metaInformation_.getFooter() << std::endl;
 }
 
-} // namespace Miscellaneous
+} // namespace OrbitalPerturbation

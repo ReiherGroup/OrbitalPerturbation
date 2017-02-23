@@ -1,8 +1,10 @@
-#ifndef MOLECULARORBITALS_H
-#define MOLECULARORBITALS_H
+#ifndef ORBITALPERTURBATION_MOLECULARORBITALS_H
+#define ORBITALPERTURBATION_MOLECULARORBITALS_H
 
 #include "SpinAdaptedMatrix.h"
 #include <assert.h>
+
+namespace OrbitalPerturbation {
 
 /*!
  * Class for the coefficient (molecular orbital) matrix.
@@ -115,4 +117,6 @@ inline unsigned MolecularOrbitals::numberOrbitals() const {
   return static_cast<unsigned>(alphaMatrix().cols());
 }
 
-#endif // MOLECULARORBITALS_H
+} // namespace OrbitalPerturbation
+
+#endif // ORBITALPERTURBATION_MOLECULARORBITALS_H

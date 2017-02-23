@@ -1,10 +1,10 @@
-#ifndef GAUSSIANORBITALFILEWRITER_H
-#define GAUSSIANORBITALFILEWRITER_H
+#ifndef ORBITALPERTURBATION_GAUSSIANORBITALFILEWRITER_H
+#define ORBITALPERTURBATION_GAUSSIANORBITALFILEWRITER_H
 
 #include "MolecularOrbitals.h"
 #include <fstream>
 
-namespace Miscellaneous {
+namespace OrbitalPerturbation {
 
 /*!
  * Class to read a formatted Gaussian checkpoint file and extract the orbitals
@@ -27,6 +27,6 @@ class GaussianOrbitalFileWriter {
   std::ofstream fout_;
 };
 
-} // namespace Miscellaneous
+} // namespace OrbitalPerturbation
 
-#endif // GAUSSIANORBITALFILEWRITER_H
+#endif // ORBITALPERTURBATION_GAUSSIANORBITALFILEWRITER_H

@@ -2,7 +2,7 @@
 #include <assert.h>
 #include <iostream>
 
-namespace Miscellaneous {
+namespace OrbitalPerturbation {
 
 double TurbomoleNumberStringConverter::toDouble(const std::string& numberString) {
   assert(numberString.length() == 20);
@@ -65,4 +65,4 @@ std::string TurbomoleNumberStringConverter::getExponentPart(int exponent) {
   return s;
 }
 
-} // namespace Miscellaneous
+} // namespace OrbitalPerturbation

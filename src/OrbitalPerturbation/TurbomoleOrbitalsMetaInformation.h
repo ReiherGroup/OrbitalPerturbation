@@ -1,10 +1,10 @@
-#ifndef TURBOMOLEORBITALSMETAINFORMATION_H
-#define TURBOMOLEORBITALSMETAINFORMATION_H
+#ifndef ORBITALPERTURBATION_TURBOMOLEORBITALSMETAINFORMATION_H
+#define ORBITALPERTURBATION_TURBOMOLEORBITALSMETAINFORMATION_H
 
 #include <vector>
 #include <string>
 
-namespace Miscellaneous {
+namespace OrbitalPerturbation {
 /*!
  * Information contained in a turbomole molecular orbitals file apart from the molecular orbitals themselves.
  */
@@ -27,6 +27,6 @@ class TurbomoleOrbitalsMetaInformation {
   std::vector<std::string> orbitalInformation_;
 };
 
-} // namespace Miscellaneous
+} // namespace OrbitalPerturbation
 
-#endif // TURBOMOLEORBITALSMETAINFORMATION_H
+#endif // ORBITALPERTURBATION_TURBOMOLEORBITALSMETAINFORMATION_H
