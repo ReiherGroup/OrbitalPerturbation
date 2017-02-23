@@ -1,6 +1,6 @@
 import sys
 import os
-from cmd_exists import cmd_exists
+from perturbation_utils import cmd_exists, create_backup
 from shutil import copyfile, move
 
 
@@ -28,7 +28,7 @@ if not cmd_exists("formchk") or not cmd_exists("unfchk"):
     sys.exit()
 
 
-create_checkpoint_backup(checkpoint_file)
+create_backup(checkpoint_file)
 formatted_checkpoint_file = "checkpoint.FChk"
 
 convert_to_formatted_checkpoint(checkpoint_file, formatted_checkpoint_file)

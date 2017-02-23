@@ -2,7 +2,7 @@ import os
 import re
 import sys
 from shutil import copyfile
-from cmd_exists import cmd_exists
+from perturbation_utils import cmd_exists, create_backup
 
 class ControlFileParser:
     def __init__(self, directory):
@@ -44,13 +44,6 @@ class ControlFileParser:
         return self.number_orbitals
 
 
-def create_orbital_backup(alpha, beta):
-    """
-    Creates .bak files for the orbital files 'alpha' and 'beta'
-    """
-    copyfile(alpha, alpha + '.bak')
-    copyfile(beta, beta + '.bak')
-
 
 args = sys.argv
 if len(args) != 2:
@@ -58,7 +51,8 @@ if len(args) != 2:
     sys.exit()
 
 calculation_directory = args[1]
-create_orbital_backup(calculation_directory)
+create_backup(calculation_directory + "/alpha")
+create_backup(calculation_directory + "/beta")
 
 parser = ControlFileParser(calculation_directory)
 parser.parse()
