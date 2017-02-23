@@ -1,7 +1,6 @@
 import os
 import re
 
-from mix_turbomole import calculation_directory
 from perturbation_utils import create_backup
 
 
@@ -40,13 +39,14 @@ class TurbomoleOrbitalPerturber:
 
         alpha = parser.alpha_filename
         beta = parser.beta_filename
-        create_backup(calculation_directory + "/" + alpha)
-        create_backup(calculation_directory + "/" + beta)
+        create_backup(self.calculation_directory + "/" + alpha)
+        create_backup(self.calculation_directory + "/" + beta)
 
         nAlpha = str(parser.number_alpha)
         nBeta = str(parser.number_beta)
         nOrbitals = str(parser.number_orbitals)
 
         script_dir = os.path.dirname(__file__)
-        command_name = "./" + script_dir + "/turbomoleOrbitalMixer " + alpha + " " + beta + " " + nOrbitals + " " + nAlpha + " " + nBeta
+        #command_name = "./" + script_dir + "/turbomoleOrbitalMixer " + alpha + " " + beta + " " + nOrbitals + " " + nAlpha + " " + nBeta
+        command_name = script_dir + "/turbomoleOrbitalMixer " + alpha + " " + beta + " " + nOrbitals + " " + nAlpha + " " + nBeta
         os.system(command_name)
