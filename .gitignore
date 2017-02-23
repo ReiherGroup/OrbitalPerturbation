@@ -1,1 +1,8 @@
+# IntelliJ directories
 .idea
+
+# Build directories
+cmake-build-*
+
+# Compiled python
+*.pyc
