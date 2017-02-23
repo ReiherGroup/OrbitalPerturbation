@@ -10,9 +10,8 @@ namespace OrbitalPerturbation {
  * Class for the coefficient (molecular orbital) matrix.
  * Contains all the eigenfunctions (molecular orbitals) produced when solving the (generalized) eigenvalue problem.
  * The contained matrices are therefore quadratic; their dimension is the number of basis functions.
- * TODO: Take SingleParticleEnergies inside this class?
- * \sa OccupiedMolecularOrbitals
  */
+
 class MolecularOrbitals {
  public:
   using Matrix = SpinAdaptedMatrix::Matrix;
