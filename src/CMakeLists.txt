@@ -3,6 +3,7 @@ set (CMAKE_CXX_STANDARD 11)
 
 project(OrbitalPerturbation)
 
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 find_package(Eigen3 REQUIRED)
 
 set(HEADERS
@@ -39,8 +40,8 @@ set(SOURCES
 )
 
 add_library(orbital_perturbation STATIC ${HEADERS} ${SOURCES})
+target_include_directories(orbital_perturbation PUBLIC ${EIGEN3_INCLUDE_DIR})
 target_include_directories(orbital_perturbation PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
-target_link_libraries(orbital_perturbation PUBLIC Eigen3::Eigen)
 
 add_executable(turbomole_perturbation main_turbomole.cpp)
 add_executable(gaussian_perturbation main_gaussian.cpp)
