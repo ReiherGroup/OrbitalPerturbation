@@ -3,6 +3,8 @@
 
 #include <string>
 
+namespace OrbitalPerturbation {
+
 /*!
  * This class converts a double to a string in scientific notation.
  * It follows the following format:
@@ -48,5 +50,7 @@ inline char ScientificNumberFormatter::defaultExponentSeparator() {
 inline int ScientificNumberFormatter::defaultNumberOfDigitsAfterDecimalPoint() {
   return defaultNumberOfDigitsAfterDecimalPoint_;
 }
+
+} // namespace OrbitalPerturbation
 
 #endif // ORBITALPERTURBATION_SCIENTIFICNUMBERFORMATTER_H

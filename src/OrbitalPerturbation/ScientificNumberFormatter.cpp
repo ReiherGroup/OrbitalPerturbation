@@ -3,6 +3,8 @@
 #include <sstream>
 #include <assert.h>
 
+namespace OrbitalPerturbation {
+
 ScientificNumberFormatter::ScientificNumberFormatter()
   : length_(defaultLength_),
     numberOfDigitsAfterDecimalPoint_(defaultNumberOfDigitsAfterDecimalPoint_),
@@ -39,3 +41,5 @@ std::string ScientificNumberFormatter::convert(double number) const {
 
   return numberString;
 }
+
+} // namespace OrbitalPerturbation

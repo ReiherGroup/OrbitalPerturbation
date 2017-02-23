@@ -10,7 +10,6 @@ namespace OrbitalPerturbation {
  * Class defining a matrix and which can be used for both spin-restricted and spin-unrestricted formalisms in electronic structure calculation methods.
  * There is only slight overhead if only the restricted formulation is needed.
  */
-
 class SpinAdaptedMatrix {
 public:
   using Matrix = Eigen::MatrixXd;

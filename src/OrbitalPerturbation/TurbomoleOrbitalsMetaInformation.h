@@ -5,6 +5,7 @@
 #include <string>
 
 namespace OrbitalPerturbation {
+
 /*!
  * Information contained in a turbomole molecular orbitals file apart from the molecular orbitals themselves.
  */

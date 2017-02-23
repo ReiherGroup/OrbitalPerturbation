@@ -71,4 +71,5 @@ void MolecularOrbitalsManipulation::mixOrbitalCoefficients(Eigen::MatrixXd& C,
     C.col(m.orbital2_) = C.col(m.orbital2_) * std::cos(m.angleInRad_) - temporaryOrbitalCoefficients * std::sin(m.angleInRad_);
   }
 }
+
 } // namespace OrbitalPerturbation
