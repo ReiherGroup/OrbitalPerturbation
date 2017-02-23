@@ -4,13 +4,6 @@ from perturbation_utils import cmd_exists, create_backup
 from shutil import copyfile, move
 
 
-def create_checkpoint_backup(checkpoint_file):
-    """
-    Creates .bak files for the orbital files 'alpha' and 'beta'
-    :param directory: calculation directory
-    """
-    copyfile(checkpoint_file, checkpoint_file + '.bak')
-
 def convert_to_formatted_checkpoint(unformatted, formatted):
     os.system("formchk " + unformatted + " " + formatted)
 
