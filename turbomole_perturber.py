@@ -29,21 +29,6 @@ class ControlFileParser:
         matches = re.findall("nbf\(AO\)=(\d*)", filetext)
         self.number_orbitals = int(matches[0])
 
-    def get_alpha_filename(self):
-        return self.alpha_filename
-
-    def get_beta_filename(self):
-        return self.beta_filename
-
-    def get_number_alpha_electrons(self):
-        return self.number_alpha
-
-    def get_number_beta_electrons(self):
-        return self.number_beta
-
-    def get_number_orbitals(self):
-        return self.number_orbitals
-
 
 class TurbomoleOrbitalPerturber:
     def __init__(self, calculation_directory):
@@ -53,14 +38,14 @@ class TurbomoleOrbitalPerturber:
         parser = ControlFileParser(self.calculation_directory)
         parser.parse()
 
-        alpha = parser.get_alpha_filename()
-        beta = parser.get_beta_filename()
+        alpha = parser.alpha_filename
+        beta = parser.beta_filename
         create_backup(calculation_directory + "/" + alpha)
         create_backup(calculation_directory + "/" + beta)
 
-        nAlpha = str(parser.get_number_alpha_electrons())
-        nBeta = str(parser.get_number_beta_electrons())
-        nOrbitals = str(parser.get_number_orbitals())
+        nAlpha = str(parser.number_alpha)
+        nBeta = str(parser.number_beta)
+        nOrbitals = str(parser.number_orbitals)
 
         script_dir = os.path.dirname(__file__)
         command_name = "./" + script_dir + "/turbomoleOrbitalMixer " + alpha + " " + beta + " " + nOrbitals + " " + nAlpha + " " + nBeta
