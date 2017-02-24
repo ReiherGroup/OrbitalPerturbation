@@ -2,7 +2,10 @@
 #include "OrbitalPerturbation/MolecularOrbitals.h"
 #include "OrbitalPerturbation/GaussianOrbitalFileWriter.h"
 #include "OrbitalPerturbation/Mixing.h"
+#include "OrbitalPerturbation/SeedIO.h"
 #include <iostream>
+
+using namespace OrbitalPerturbation;
 
 /*!
  * Executable to mix the orbitals of Gaussian formatted checkpoint files.
@@ -24,15 +27,17 @@ int main(int argc, char *argv[]) {
     newchkFileName = argv[2];
   }
 
-  OrbitalPerturbation::GaussianOrbitalFileReader gt(chkFileName);
+  GaussianOrbitalFileReader gt(chkFileName);
 
   auto mo = gt.getOrbitals();
   unsigned nAlpha = gt.getNumberAlphaElectrons();
   unsigned nBeta = gt.getNumberBetaElectrons();
 
+  readSeed("seed");
   mixOrbitals(mo, nAlpha, nBeta);
+  writeSeed("seed");
 
-  OrbitalPerturbation::GaussianOrbitalFileWriter wt(mo, chkFileName, newchkFileName);
+  GaussianOrbitalFileWriter wt(mo, chkFileName, newchkFileName);
   wt.write();
 
   return 0;
