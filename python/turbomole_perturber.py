@@ -2,7 +2,7 @@ import os
 import re
 import sys
 
-from perturbation_utils import create_backup, cmd_exists
+from perturbation_utils import create_backup, command_exists
 
 
 class ControlFileParser:
@@ -37,7 +37,7 @@ class TurbomoleOrbitalPerturber:
         self.check_preconditions()
 
     def check_preconditions(self):
-        if not cmd_exists(self.executable_name):
+        if not command_exists(self.executable_name):
             print("The executable '" + self.executable_name + "' is not present in the PATH variable")
             sys.exit()
 
