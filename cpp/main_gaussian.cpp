@@ -14,18 +14,18 @@ using namespace OrbitalPerturbation;
  *  f.i.: ./turbomoleOrbitalMixer checkpoint_original.fchk checkpoint_perturbed.fchk
  */
 int main(int argc, char *argv[]) {
-  std::string current_exec_name = argv[0];
-  std::string chkFileName;
-  std::string newchkFileName;
-
   if (argc < 3) {
     std::cout << "Usage: <executable> <original_checkpoint_file> <perturbed_checkpoint_file>" << std::endl;
     return 1;
   }
-  else {
-    chkFileName = argv[1];
-    newchkFileName = argv[2];
-  }
+
+  std::string chkFileName = argv[1];
+  std::string newChkFileName = argv[2];
+
+  std::string seedFile;
+  bool seedProvided = (argc > 3);
+  if (seedProvided)
+    seedFile = argv[3];
 
   GaussianOrbitalFileReader gt(chkFileName);
 
@@ -33,12 +33,12 @@ int main(int argc, char *argv[]) {
   unsigned nAlpha = gt.getNumberAlphaElectrons();
   unsigned nBeta = gt.getNumberBetaElectrons();
 
-  RandomSeed::readSeed("seed");
+  if (seedProvided)
+    RandomSeed::readSeed(seedFile);
   Mixing::mixOrbitals(mo, nAlpha, nBeta);
-  RandomSeed::writeSeed("seed");
+  if (seedProvided)
+    RandomSeed::writeSeed(seedFile);
 
-  GaussianOrbitalFileWriter wt(mo, chkFileName, newchkFileName);
+  GaussianOrbitalFileWriter wt(mo, chkFileName, newChkFileName);
   wt.write();
-
-  return 0;
 }

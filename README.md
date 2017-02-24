@@ -89,3 +89,13 @@ python gaussian.py binary_checkpoint_file.chk
 ```
 the orbitals in the checkpoint file `binary_checkpoint_file.chk` files are perturbed and you can directly start another Gaussian calculation.  
 Hint: Make sure that your Gaussian calculation is unrestricted (keywords `UHF` or `UKS`).
+
+
+## Randomness and reproducibility of results
+
+If reproducibility is required, it is possible to specify the seed of the random number generator.
+To do so, you can enter an additional argument when calling the executables `turbomole_perturbation` and `gaussian_perturbation`, representing a file containing your random seed (integer number).
+After the perturbation of the orbitals, this file is updated and contains the new random seed.
+
+When the programs are called without this argument, the random number generator is initialized from the current time.
+This is the case when using the provided python scripts.

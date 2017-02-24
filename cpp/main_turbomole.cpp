@@ -16,12 +16,11 @@ using namespace OrbitalPerturbation;
  *  f.i.: ./turbomoleOrbitalMixer alpha beta 88 19 16
  */
 int main(int argc, char *argv[]) {
-  string current_exec_name = argv[0];
-
-  if (argc < 5) {
+  if (argc < 6) {
     cout << "Usage: [executable] [alpha_filename] [beta_filename] [number of orbitals] [number of alpha electrons] [number of beta electrons]" << endl;
     return 1;
   }
+
   string alpha_file = argv[1];
   string beta_file = argv[2];
   string nOrbitalsString = argv[3];
@@ -31,15 +30,21 @@ int main(int argc, char *argv[]) {
   auto nAlpha = static_cast<unsigned>(stoi(nAlphaString));
   auto nBeta = static_cast<unsigned>(stoi(nBetaString));
 
+  std::string seedFile;
+  bool seedProvided = (argc > 6);
+  if (seedProvided)
+    seedFile = argv[6];
 
   TurbomoleOrbitalFileReader ta(alpha_file, nOrbitals);
   TurbomoleOrbitalFileReader tb(beta_file, nOrbitals);
 
   MolecularOrbitals mo = MolecularOrbitals::createFromUnrestrictedCoefficients(ta.getCoefficientMatrix(), tb.getCoefficientMatrix());
 
-  RandomSeed::readSeed("seed");
+  if (seedProvided)
+    RandomSeed::readSeed(seedFile);
   Mixing::mixOrbitals(mo, nAlpha, nBeta);
-  RandomSeed::writeSeed("seed");
+  if (seedProvided)
+    RandomSeed::writeSeed(seedFile);
 
   TurbomoleOrbitalFileWriter wa(mo.alphaMatrix(), ta.getMetaInformation());
   TurbomoleOrbitalFileWriter wb(mo.betaMatrix(), tb.getMetaInformation());

@@ -12,7 +12,9 @@ void RandomSeed::readSeed(const std::string& filename) {
   seedFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
   try {
     seedFile.open(filename);
-    seedFile >> OrbitalPerturbation::RandomOrbitalMixer::getRandomNumberGenerator();
+    unsigned long seed;
+    seedFile >> seed;
+    OrbitalPerturbation::RandomOrbitalMixer::getRandomNumberGenerator().seed(seed);
   }
   catch (...) {
     cout << "The seed file does not exist." << endl;
@@ -24,7 +26,7 @@ void RandomSeed::writeSeed(const std::string& filename) {
   seedFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
   try {
     seedFile.open(filename);
-    seedFile << OrbitalPerturbation::RandomOrbitalMixer::getRandomNumberGenerator();
+    seedFile << OrbitalPerturbation::RandomOrbitalMixer::getRandomNumberGenerator()();
   }
   catch (...) {
     cout << "Error when writing the seed file" << endl;

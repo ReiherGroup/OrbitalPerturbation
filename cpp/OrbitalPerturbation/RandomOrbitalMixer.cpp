@@ -2,10 +2,11 @@
 #include "MolecularOrbitals.h"
 #include "UniqueRandomNumbersGenerator.h"
 #include <iostream>
+#include <chrono>
 
 namespace OrbitalPerturbation {
 
-std::mt19937 RandomOrbitalMixer::rdGen_; // NB: if non-static, the same orbital mixes will always be generated.
+std::mt19937 RandomOrbitalMixer::rdGen_{static_cast<unsigned long>(std::chrono::high_resolution_clock::now().time_since_epoch().count())}; // NB: if non-static, the same orbital mixes will always be generated.
 
 RandomOrbitalMixer::RandomOrbitalMixer(MolecularOrbitals& orbitals, int nRestrictedElectrons)
   : orbitals_(orbitals),
