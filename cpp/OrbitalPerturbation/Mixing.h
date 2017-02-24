@@ -2,9 +2,12 @@
 #define ORBITALPERTURBATION_MIXING_H
 
 namespace OrbitalPerturbation {
-
 class MolecularOrbitals;
-void mixOrbitals(MolecularOrbitals& mo, unsigned nAlpha, unsigned nBeta);
+
+class Mixing {
+ public:
+  static void mixOrbitals(MolecularOrbitals& mo, unsigned nAlpha, unsigned nBeta);
+};
 
 } // namespace OrbitalPerturbation
 

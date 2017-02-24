@@ -1,4 +1,4 @@
-#include "SeedIO.h"
+#include "RandomSeed.h"
 #include "RandomOrbitalMixer.h"
 #include <fstream>
 #include <iostream>
@@ -7,7 +7,7 @@ using namespace std;
 
 namespace OrbitalPerturbation {
 
-void readSeed(const std::string& filename) {
+void RandomSeed::readSeed(const std::string& filename) {
   ifstream seedFile;
   seedFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
   try {
@@ -19,7 +19,7 @@ void readSeed(const std::string& filename) {
   }
 }
 
-void writeSeed(const std::string& filename) {
+void RandomSeed::writeSeed(const std::string& filename) {
   ofstream seedFile;
   seedFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
   try {

@@ -2,7 +2,7 @@
 #include "OrbitalPerturbation/MolecularOrbitals.h"
 #include "OrbitalPerturbation/GaussianOrbitalFileWriter.h"
 #include "OrbitalPerturbation/Mixing.h"
-#include "OrbitalPerturbation/SeedIO.h"
+#include "OrbitalPerturbation/RandomSeed.h"
 #include <iostream>
 
 using namespace OrbitalPerturbation;
@@ -33,9 +33,9 @@ int main(int argc, char *argv[]) {
   unsigned nAlpha = gt.getNumberAlphaElectrons();
   unsigned nBeta = gt.getNumberBetaElectrons();
 
-  readSeed("seed");
-  mixOrbitals(mo, nAlpha, nBeta);
-  writeSeed("seed");
+  RandomSeed::readSeed("seed");
+  Mixing::mixOrbitals(mo, nAlpha, nBeta);
+  RandomSeed::writeSeed("seed");
 
   GaussianOrbitalFileWriter wt(mo, chkFileName, newchkFileName);
   wt.write();

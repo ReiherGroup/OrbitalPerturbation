@@ -12,7 +12,7 @@ if (NOT ${Eigen3_FOUND})
 endif()
 
 set(HEADERS
-    OrbitalPerturbation/SeedIO.h
+    OrbitalPerturbation/RandomSeed.h
     OrbitalPerturbation/Mixing.h
     OrbitalPerturbation/MolecularOrbitals.h
     OrbitalPerturbation/MolecularOrbitalsManipulation.h
@@ -29,7 +29,7 @@ set(HEADERS
 )
 
 set(SOURCES
-    OrbitalPerturbation/SeedIO.cpp
+    OrbitalPerturbation/RandomSeed.cpp
     OrbitalPerturbation/Mixing.cpp
     OrbitalPerturbation/MolecularOrbitals.cpp
     OrbitalPerturbation/MolecularOrbitalsManipulation.cpp
