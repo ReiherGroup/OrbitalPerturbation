@@ -52,6 +52,23 @@ This will create the executables `turbomole_perturbation` and `gaussian_perturba
 
 Turbomole website: http://www.turbomole-gmbh.com/
 
+The C++ executable perturbing the Gaussian molecular orbitals acts on orbital files produced by Turbomole (normally, `alpha` and `beta`).
+It can be used in the following manner:
+```bash
+# turbomole_perturbation <alpha_filename> <beta_filename> <number_orbitals> <number_alpha_electrons> <number_beta_electrons>
+turbomole_perturbation alpha beta 88 19 16
+```
+and will directly replace the orbitals in the files `alpha` and `beta` by perturbed orbitals.
+
+The python script `turbomole.py` automatically calls this executable in the correct fashion.
+With
+```bash
+python turbomole.py <turbomole_calculation_directory>
+```
+the `control` file will be parsed to get the filenames for the alpha and beta orbitals, the number of electrons and the number of orbitals.
+Then you can directly start another Turbomole calculation in this directory.  
+Hint: Make sure that your Turbomole calculation is unrestricted (keyword `$uhf`).
+
 ### Gaussian
 
 Gaussian website: http://gaussian.com/
@@ -70,5 +87,5 @@ With
 ```bash
 python gaussian.py binary_checkpoint_file.chk
 ```
-the orbitals in the checkpoint file `binary_checkpoint_file.chk` files are perturbed and you can directly start another Gaussian calculation.
-NB: Make sure that your Gaussian calculation is unrestricted (keywords `UHF` or `UKS`).
+the orbitals in the checkpoint file `binary_checkpoint_file.chk` files are perturbed and you can directly start another Gaussian calculation.  
+Hint: Make sure that your Gaussian calculation is unrestricted (keywords `UHF` or `UKS`).
