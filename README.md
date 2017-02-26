@@ -5,7 +5,7 @@ Restarting calculations from perturbed molecular orbitals may steer the self-con
 
 The actual perturbation of the orbitals is implemented in C++.
 For this, different executables exist for the different quantum chemical programs, and they modify the corresponding checkpoint files or molecular orbital files.
-These executables can either be compiled from the source code in this repository, or downloaded directly (Linux only).
+These executables can either be compiled from the source code in this repository, or downloaded directly [here](https://github.com/ReiherGroup/OrbitalPerturbation/releases/latest) (Linux only).
 
 Python scripts are provided to automatize the use of the C++ programs.
 An example with the methane molecule is illustrated [here](example/README.md).
