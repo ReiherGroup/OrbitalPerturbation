@@ -1,0 +1,12 @@
+%chk=methane.chk
+#P UHF/Def2SVP
+
+orbital perturbation UHF/Def2SVP sp methane
+
+0 1
+C      0.00000    0.00000    0.00000
+H      0.00000    0.00000    2.00000
+H      1.02672    0.00000   -0.36300
+H     -0.51336   -0.88916   -0.36300
+H     -0.51336    0.88916   -0.36300
+
