@@ -8,6 +8,7 @@ For this, different executables exist for the different quantum chemical program
 These executables can either be compiled from the source code in this repository, or downloaded directly (Linux only).
 
 Python scripts are provided to automatize the use of the C++ programs.
+An example with the methane molecule is illustrated [here](example/README.md).
 
 Specific information to the supported quantum chemical software can be read below.
 
