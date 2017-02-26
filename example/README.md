@@ -3,7 +3,7 @@
 Below, we describe an example application of the perturbation approach for the methane molecule, where one of the hydrogen atoms has been pulled to a distance of 2 Angstrom from the carbon atom.
 Normally, the initial calculation should deliver a higher-energy, closed-shell solution, and after one or several orbital perturbations the lower-energy, spin-broken solution should be found.
 
-The corresponding coordinate files can be found [here](methane.xyz).
+The corresponding coordinate file can be found [here](methane.xyz).
 
 ## Turbomole
 
