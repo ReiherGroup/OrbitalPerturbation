@@ -14,8 +14,8 @@ setup(name='orbitalperturbation',
       url='https://github.com/ReiherGroup/OrbitalPerturbation',
       author='Alain C. Vaucher',
       entry_points={
-          'console_scripts': ['turbomole_perturb = orbitalperturbation.turbomole:main',
-                              'gaussian_perturb = orbitalperturbation.gaussian:main'
+          'console_scripts': ['perturb_turbomole_orbitals = orbitalperturbation.turbomole:main',
+                              'perturb_gaussian_orbitals = orbitalperturbation.gaussian:main'
                               ],
       },
       packages=['orbitalperturbation'],
