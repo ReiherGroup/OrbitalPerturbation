@@ -11,12 +11,12 @@ The corresponding coordinate file can be found [here](methane.xyz).
 2. `x2t ../methane.xyz > coord`
 3. Generate the Turbomole control file: `define`. Thereby, make sure not to choose a closed-shell occupation ("DO YOU ACCEPT THIS OCCUPATION" -> "no", then select "s" for "singlet").
 4. Perform an initial calculation: `dscf > dscf.out` or similar.
-5. Perturb the orbitals: `turbomole_perturb .` (this executes the corresponding Python script).
+5. Perturb the orbitals: `perturb_turbomole_orbitals .` (this executes the corresponding Python script).
 6. Perform another calculation: `dscf > dscf_perturbed.out` one or several times.
 
 ## Gaussian
 
 1. Go to the folder `example/gaussian`.
 2. Perform an initial calculation: `g09 methane.inp`.
-3. Perturb the orbitals: `gaussian_perturb methane.chk` (this executes the corresponding Python script).
+3. Perturb the orbitals: `perturb_gaussian_orbitals methane.chk` (this executes the corresponding Python script).
 4. Perform another calculation: `g09 methane_perturbed.inp` one or several times. There, `methane_perturbed.inp` is identical to `methane.inp` but for the keyword `Guess=Read`.
