@@ -52,6 +52,16 @@ pip install ./OrbitalPerturbation
 ```
 This will also place the executables `turbomole_perturb` and `gaussian_perturb` into your `PATH`.
 
+
+## Install Python package
+
+To install the Python scripts as a Python package called `orbitalperturbation`, follow these instructions:
+```bash
+cd python
+pip install .
+```
+Then, you can execute `perturb_gaussian_orbitals` and `perturb_turbomole_orbitals` directly in the terminal instead of `python /path/to/gaussian.py` and `python /path/to/turbomole`, respectively.
+
 ## Supported quantum chemical packages
 
 ### Turbomole
