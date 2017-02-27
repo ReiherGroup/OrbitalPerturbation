@@ -7,7 +7,7 @@ def create_backup(file):
 
 
 def command_exists(command_string):
-    return execute_command('type ' + command_string)
+    return execute_command('type ' + command_string) == 0
 
 
 def execute_command(command_string):
